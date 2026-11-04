@@ -1,0 +1,1 @@
+{"schemaVersion":2,"mediaType":"application/vnd.oci.image.index.v1+json","manifests":[{"mediaType":"application/vnd.oci.image.index.v1+json","digest":"sha256:7a74c9e9c00eb127582636047ac912d9c97ab1c7f40e6ef8e1d260c566e2c88f","size":856,"annotations":{"io.containerd.image.name":"docker.io/library/theloop-site:preview","org.opencontainers.image.ref.name":"preview"}}]}
