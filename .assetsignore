@@ -1,0 +1,13 @@
+# Not part of the website: deployment, tooling and the old nginx/Docker preview.
+tar
+nginx.conf
+50x.html
+wrangler.jsonc
+package.json
+package-lock.json
+node_modules
+.git
+.gitignore
+.DS_Store
+.assetsignore
+.wrangler

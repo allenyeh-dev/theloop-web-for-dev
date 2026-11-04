@@ -1,0 +1,5 @@
+# Same 7-day image cache as nginx.conf; pages, scripts and data stay fresh.
+/images/*
+  Cache-Control: public, max-age=604800
+/*.svg
+  Cache-Control: public, max-age=604800
