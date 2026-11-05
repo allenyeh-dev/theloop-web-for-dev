@@ -10,7 +10,7 @@
 })();
 
 // Split Rise: each title is split into characters inside clipping masks; they rise from below
-// (0.06s apart, strong ease-out) when the title scrolls in, and slide up and out as it scrolls away.
+// (0.06s apart, strong ease-out) the first time the title scrolls in, and stay in place afterwards.
 window.initRise = (() => {
   const ready = window.gsap && window.SplitText && window.ScrollTrigger;
   if (ready) gsap.registerPlugin(SplitText,ScrollTrigger);
@@ -20,10 +20,8 @@ window.initRise = (() => {
     fonts.then(() => {
       const split = SplitText.create(el,{type:'words,chars',mask:'chars',charsClass:'char'}), chars = split.chars;
       gsap.set(chars,{yPercent:110}); el.classList.add('risen');
-      const rise = from => gsap.fromTo(chars,{yPercent:from},{yPercent:0,duration:1.15,ease:'power4.out',stagger:.06,overwrite:true});
-      const leave = () => gsap.to(chars,{yPercent:-110,duration:.7,ease:'power4.in',stagger:.025,overwrite:true});
-      ScrollTrigger.create({trigger:el,start:'top 90%',end:'top 8%',
-        onEnter:() => rise(110),onEnterBack:() => rise(-110),onLeave:leave,onLeaveBack:() => gsap.set(chars,{yPercent:110,overwrite:true})});
+      ScrollTrigger.create({trigger:el,start:'top 90%',once:true,
+        onEnter:() => gsap.to(chars,{yPercent:0,duration:1.15,ease:'power4.out',stagger:.06})});
     });
   };
 })();
